@@ -27,5 +27,36 @@ namespace ExerciciosCsharp3
 
             label3.Text = Convert.ToString(valor1 * valor2, CultureInfo.InvariantCulture);
         }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            // Lê a altura digitada pelo usuário na TextBox
+            double altura = double.Parse(textBox3.Text);
+
+            // Lê o sexo escolhido pelo usuário no RadioButton
+            string sexo = "";
+            if (radioButton1.Checked)
+            {
+                sexo = "M";
+            }
+            else if (radioButton2.Checked)
+            {
+                sexo = "F";
+            }
+
+            // Calcula o peso ideal de acordo com o sexo
+            double pesoIdeal = 0;
+            if (sexo == "M")
+            {
+                pesoIdeal = (72.7 * altura) - 58;
+            }
+            else if (sexo == "F")
+            {
+                pesoIdeal = (62.1 * altura) - 44.7;
+            }
+
+            // Exibe o resultado no Label
+            label4.Text = "O peso ideal é: " + pesoIdeal.ToString("N2") + " kg";
+        }
     }
 }
